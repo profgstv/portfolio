@@ -1,7 +1,7 @@
-# Portifolio de Apresentação de Projetos.
+# Portfólio de Apresentação de Projetos.
 Linkado com projetos construídos nas mais diversas plataformas e comunidades de tecnologia e inovação.
 
-## Este Portifólio é trabalhado em HTML, CSS e Javascript para exemplificação e inspiração em um uso pedagógico.
+## Este Portfólio é trabalhado em HTML, CSS e Javascript para exemplificação e inspiração em um uso pedagógico.
 Inicialmente trabalhado como um projeto realizado para a plataforma Start by Alura, foram realizadas as modificações de identidade pessoal e adicionados os projetos reais do [Professor Gustavo](https://github.com/profgstv/) dinamizando a adição de elementos com Javascript de modo apresentável para inspiração dos alunos do ensino básico da rede estadual em São Paulo.
 
 ## Implementações utilizando a biblioteca Bootstrap.
