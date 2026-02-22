@@ -34,7 +34,13 @@ const communitiesList = {
     "Tinkercad": "https://www.tinkercad.com/users/fCvRHkvJnfc"
 }
 
+const jobsList = {
+    "Secretaria da Educação - SEDUC/SP (2019-2025)": "https://www.educacao.sp.gov.br/",
+    "Centro de Inovação da Educação Básica Paulista - CIEBP (2024 - 2025)": "https://centrodeinovacao.educacao.sp.gov.br/"
+}
+
 const randomizedProjects = arrayRandomizer(projectsList.projectName);
+const randomizedJobs = arrayRandomizer(jobsList);
 const randomizedTechs = arrayRandomizer(techsList);
 const randomizedCommunities = arrayRandomizer(Object.keys(communitiesList));
 
@@ -188,6 +194,14 @@ function createModal(a) {
 for(let i in projectsList.projectName) {;
     createCard(i);
     createModal(i);
+}
+
+for(let i in randomizedJobs) {
+    let jobs = document.getElementById("previousJobs");
+    let jobsButton = document.createElement("button");
+    jobs.appendChild(jobsButton);
+    techButton.setAttribute("class", "badge local-link");
+    techButton.innerHTML = randomizedJobs[i];
 }
 
 for(let i in randomizedTechs) {
