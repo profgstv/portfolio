@@ -200,8 +200,8 @@ for(let i in randomizedJobs) {
     let jobs = document.getElementById("previousJobs");
     let jobsButton = document.createElement("button");
     jobs.appendChild(jobsButton);
-    techButton.setAttribute("class", "badge local-link");
-    techButton.innerHTML = randomizedJobs[i];
+    jobsButton.setAttribute("class", "badge local-link");
+    jobsButton.innerHTML = randomizedJobs[i];
 }
 
 for(let i in randomizedTechs) {
