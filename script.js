@@ -36,8 +36,9 @@ const communitiesList = {
 }
 
 const jobsList = {
-    "Secretaria da Educação do Estado de São Paulo - SEDUC/SP (2019-2025)": "https://www.educacao.sp.gov.br/",
-    "Centro de Inovação da Educação Básica Paulista - CIEBP (2024-2025)": "https://centrodeinovacao.educacao.sp.gov.br/"
+    "Fábrica de Cultura SBC (atual)": "https://fabricadecultura.org.br/",
+    "CIEBP (2024-2025)": "https://centrodeinovacao.educacao.sp.gov.br/",
+    "SEDUC/SP (2019-2025)": "https://www.educacao.sp.gov.br/"
 }
 
 const randomizedProjects = arrayRandomizer(projectsList.projectName);
@@ -199,7 +200,7 @@ for(let i in projectsList.projectName) {;
 
 for(let i in randomizedJobs) {
     let jobURL = jobsList[randomizedJobs[i]];
-    let jobs = document.getElementById("previousJobs");
+    let jobs = document.getElementById("jobs");
     let jobLink = document.createElement("a");
     let jobButton = document.createElement("button");
     jobs.appendChild(jobLink);
