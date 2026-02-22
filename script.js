@@ -31,16 +31,17 @@ const communitiesList = {
     "GitHub": "https://github.com/profgstv",
     "P5.js": "https://editor.p5js.org/gustavodal/sketches",
     "Scratch": "https://scratch.mit.edu/users/profgstv/",
-    "Tinkercad": "https://www.tinkercad.com/users/fCvRHkvJnfc"
+    "Tinkercad": "https://www.tinkercad.com/users/fCvRHkvJnfc",
+    "Itch.io": "https://profgstv.itch.io/"
 }
 
 const jobsList = {
-    "Secretaria da Educação - SEDUC/SP (2019-2025)": "https://www.educacao.sp.gov.br/",
-    "Centro de Inovação da Educação Básica Paulista - CIEBP (2024 - 2025)": "https://centrodeinovacao.educacao.sp.gov.br/"
+    "Secretaria da Educação do Estado de São Paulo - SEDUC/SP (2019-2025)": "https://www.educacao.sp.gov.br/",
+    "Centro de Inovação da Educação Básica Paulista - CIEBP (2024-2025)": "https://centrodeinovacao.educacao.sp.gov.br/"
 }
 
 const randomizedProjects = arrayRandomizer(projectsList.projectName);
-const randomizedJobs = arrayRandomizer(jobsList);
+const randomizedJobs = arrayRandomizer(Object.keys(jobsList));
 const randomizedTechs = arrayRandomizer(techsList);
 const randomizedCommunities = arrayRandomizer(Object.keys(communitiesList));
 
@@ -197,11 +198,15 @@ for(let i in projectsList.projectName) {;
 }
 
 for(let i in randomizedJobs) {
+    let jobURL = jobsList[randomizedJobs[i]];
     let jobs = document.getElementById("previousJobs");
-    let jobsButton = document.createElement("button");
-    jobs.appendChild(jobsButton);
-    jobsButton.setAttribute("class", "badge local-link");
-    jobsButton.innerHTML = randomizedJobs[i];
+    let jobLink = document.createElement("a");
+    let jobButton = document.createElement("button");
+    jobs.appendChild(jobLink);
+    jobLink.setAttribute("href", jobURL);
+    jobLink.appendChild(jobButton);
+    jobButton.setAttribute("class", "badge local-link");
+    jobButton.innerHTML = randomizedJobs[i];
 }
 
 for(let i in randomizedTechs) {
