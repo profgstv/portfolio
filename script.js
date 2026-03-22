@@ -4,6 +4,7 @@
     Data: 2025-10-09
 */
 //Objetos, Arrays e Variáveis
+//Preparar a mudança para utilizar um arquivo CSV, a partir da constante abaixo:
 const projectsList = {
     projectName: ["Recomendador de Digimons", "Bem vindos ao Egito", "Monalisa no P5.js", "Jogo da Nave no P5.js", "Sorteador de Palavras", "Jogo do Pong no P5.js", "Rádio Inovação CIEBP", "Simulador de Coordenadas", "Scratch Giratório no P5.js", "Digimon Card Battle", "Jogo do Pong no Scratch", "Salve o Planeta no Scratch", "Carrinho de Drift", "Carrinho de Eixo", "Tupã-cera", "Taça de Vinho com Micro:bit", "Ponteiros de LED com Micro:bit", "Shooters com Micro:bit", "Red Alert com GitHub Pages", "CatFlix", "CatFlix Plus"],
     src: ["./img/proj-p5-digimon.png", "./img/proj-p5-egito.png", "./img/proj-p5-monalisa.png", "./img/proj-p5-nave-desvio.png", "./img/proj-p5-palavra.png", "./img/proj-p5-pong.png", "./img/proj-p5-radio.png", "./img/proj-p5-sim-coord-controle-drift.png", "./img/proj-p5-spinning-scratch.png", "./img/proj-scratch-digimon-card-battle.png", "./img/proj-scratch-pong.png", "./img/proj-scratch-salve-o-planeta.png", "./img/proj-tinkercad-carrinho-drift.png", "./img/proj-tinkercad-carrinho-eixo.png", "./img/proj-github-ciebp-minimal.png", "./img/proj-makecode-wineglass.png", "./img/proj-makecode-radio-pointers.png", "./img/proj-makecode-radio-shooters.png", "./img/proj-github-red-alert.png", "./img/proj-github-catflix.png", "./img/proj-github-catflix-plus.png"],
