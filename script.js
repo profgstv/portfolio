@@ -1,18 +1,22 @@
-// === (1) Funções utilitárias para carregar e transformar o CSV em projectsList ===
-
-// Parser de CSV com suporte a aspas, vírgulas internas e CRLF/LF
+/*
+    Script para criação dinâmica dos cards de projetos, modais de detalhes, badges de tecnologias e badges de comunidades.
+    Autor: Gustavo Dal Farra Miguel Jorge
+    Atualização: 2026-03-23
+    Criação: 2025-10-09
+*/
+//Próximos Passos: Criar uma lógica de filtros por tecnologias.
 function parseCSV(text) {
   const rows = [];
   let row = [];
   let field = '';
   let inQuotes = false;
 
-  const s = text.replace(/^\uFEFF/, ''); // remove BOM
+  const s = text.replace(/^\uFEFF/, '');
 
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
     if (c === '"') {
-      if (inQuotes && s[i + 1] === '"') { field += '"'; i++; } // aspas escapadas
+      if (inQuotes && s[i + 1] === '"') { field += '"'; i++; }
       else { inQuotes = !inQuotes; }
     } else if (c === ',' && !inQuotes) {
       row.push(field); field = '';
@@ -41,13 +45,11 @@ function csvRowsToObjects(headers, rows) {
   });
 }
 
-// Transpõe uma lista de objetos (linhas) para o formato em vetores paralelos do seu projectsList
 function objectsToProjectsList(objs) {
-  // Colunas que seu script usa hoje (na mesma ordem)
   const cols = [
     "projectName","src","alt","modalID","basicDescription",
     "description0","description1","description2",
-    "link0","linkName0","link1","linkName1","link2","linkName2","link3","linkName3","link4","linkName4"
+    "link0","linkName0","link1","linkName1","link2","linkName2","link3","linkName3","link4","linkName4", "techs"
   ];
 
   const projectsList = {};
@@ -60,7 +62,6 @@ function objectsToProjectsList(objs) {
   return projectsList;
 }
 
-// Carrega o CSV e devolve um objeto projectsList com os arrays populados
 async function loadProjectsListFromCSV(path = './src/projects_list.csv') {
   const resp = await fetch(path);
   if (!resp.ok) throw new Error(`Falha ao carregar ${path}: ${resp.status} ${resp.statusText}`);
@@ -68,20 +69,16 @@ async function loadProjectsListFromCSV(path = './src/projects_list.csv') {
 
   const { headers, rows } = parseCSV(text);
   const objs = csvRowsToObjects(headers, rows)
-    .filter(p => (p.projectName || '').trim().length > 0); // ignora linhas vazias
+    .filter(p => (p.projectName || '').trim().length > 0);
 
   return objectsToProjectsList(objs);
 }
 
-// === (2) Inicialização: carrega CSV -> preenche projectsList -> segue fluxo original ===
-
 (async function initFromCSV() {
   try {
-    // 1) Carrega e monta o objeto projectsList com os arrays
     const projectsList = await loadProjectsListFromCSV('./src/projects_list.csv');
 
-    // 2) A partir daqui, mantenha sua lógica original (apenas trocando a "origem")
-    const techsList = ["Linux","JavaScript","Python","Construct 3","Godot","HTML","CSS","Scratch","Micro:bit","MakeCode"/*,"Arduino","C++"*/];
+    const techsList = ["Linux","Javascript","Python","Construct 3","Godot","HTML","CSS","Scratch","Micro:bit","MakeCode","Tinkercad"/*,"Arduino","C++"*/];
     const communitiesList = {
       "GitHub": "https://github.com/profgstv",
       "P5.js": "https://editor.p5js.org/gustavodal/sketches",
@@ -103,7 +100,7 @@ async function loadProjectsListFromCSV(path = './src/projects_list.csv') {
     const parentElement = document.body;
     const referenceElement = document.getElementById("reference");
 
-    // === Suas funções originais (inalteradas) ===
+    // === Funções ===
     function createCard(a) {
       let i = projectsList.projectName.indexOf(randomizedProjects[a]);
       let cards = document.getElementById("projectsCards");
@@ -235,7 +232,7 @@ async function loadProjectsListFromCSV(path = './src/projects_list.csv') {
       return rand;
     }
 
-    // === Monta cards e modais (igual ao seu for original) ===
+    // === Cards & Modais ===
     for (let i in projectsList.projectName) {
       createCard(i);
       createModal(i);
