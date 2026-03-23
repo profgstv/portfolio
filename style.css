@@ -4,19 +4,21 @@
     --cor-principal: #5e2020;
     --cor-secundaria: #490000;
     --cor-destaque: #fc2b2b;
-    --cor-background: mistyrose;
-    --cor-hover: darksalmon;
+    --cor-background: #ffe4e1;
+    --cor-hover: #e9967a;
 }
 
 body {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: "Blinker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     color: var(--cor-principal);
     background-color: var(--cor-background);
 }
 
-h1, h2, h5 {
-    color: var(--cor-secundaria);
+h1, h2, h3, h5, a {
     font-weight: 700;
+    color: var(--cor-secundaria);
 }
 
 h2 {
@@ -26,6 +28,17 @@ h2 {
 button {
     margin: 0 2px;
     border: none;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 2em;
 }
 
 .side-button {
@@ -38,8 +51,8 @@ button {
 }
 
 .lead, .btn-link {
-    color: var(--cor-destaque);
     font-weight: 700;
+    color: var(--cor-destaque);
 }
 
 a, .btn-link:hover {
@@ -60,6 +73,7 @@ a:hover {
 }
 
 .local-link {
+    font-weight: 400;
     background-color: var(--cor-secundaria);
 }
 
@@ -72,7 +86,11 @@ a:hover {
 }
 
 .card {
-    margin-bottom: 1em;
+    margin: 1em 0;
+    background: #fff;
+    border-radius: 8px;
+    min-height: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .modal-content {
@@ -93,4 +111,11 @@ a:hover {
 ::selection {
     background-color: var(--cor-principal);
     color: var(--cor-background);
+}
+
+@media (max-width: 990px) {
+  .perfil {
+    flex-direction: column;
+    text-align: center;
+  }
 }
